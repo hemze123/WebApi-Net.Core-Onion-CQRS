@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddSecurityServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
-//builder.Services.AddInfrastructureServices();
+
 builder.Services.AddHttpContextAccessor();
 
 TokenOptions? tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -69,8 +69,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//if (app.Environment.IsProduction())
-    //app.ConfigureCustomExceptionMiddleware();
+
 
 app.UseAuthentication();
 app.UseAuthorization();
